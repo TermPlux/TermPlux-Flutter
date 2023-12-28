@@ -11,13 +11,31 @@ dependencies:
     git:
       url: 'https://github.com/alibaba/flutter_boost.git'
       ref: '4.4.1'
+  flutter_plugin_android_lifecycle: ^2.0.17
+  plugin_platform_interface: ^2.1.7
   cupertino_icons: ^1.0.2
+  provider: ^6.1.1
+  dio: ^4.0.6
+  flutter_ume: ^1.1.2
+  flutter_ume_kit_ui: ^1.1.0
+  flutter_ume_kit_perf: ^1.0.0
+  flutter_ume_kit_show_code: ^1.0.0+1
+  flutter_ume_kit_device: ^1.0.0
+  flutter_ume_kit_console: ^1.0.0
+  flutter_ume_kit_dio: ^1.0.1+2
+  device_preview: ^1.1.0
+  flutter_pty: ^0.4.0
+dependency_overrides:
+  vm_service: ^14.0.0
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^2.0.0
 flutter:
   uses-material-design: true
+  assets:
+    - README.md
+    - LICENSE
   module:
     androidX: true
     androidPackage: io.termplux.flutter
