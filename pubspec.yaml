@@ -7,12 +7,14 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_ecosed:
+    path: ../../FlutterProject/flutter_ecosed
   flutter_boost:
     git:
       url: 'https://github.com/alibaba/flutter_boost.git'
       ref: '5.0.1'
   flutter_plugin_android_lifecycle: ^2.0.17
-  plugin_platform_interface: ^2.1.7
+  plugin_platform_interface: ^2.1.8
   dynamic_color: ^1.6.9
   cupertino_icons: ^1.0.2
   provider: ^6.1.1
@@ -27,12 +29,12 @@ dependencies:
   device_preview: ^1.1.0
   xterm: ^3.5.0
   flutter_pty: ^0.4.0
-  path_provider: ^2.1.1
-  webview_flutter: ^4.4.2
-  permission_handler: ^11.1.0
-  http: ^1.1.2
+  path_provider: ^2.1.2
+  webview_flutter: ^4.4.4
+  permission_handler: ^11.2.0
+  http: ^1.2.0
   retry: ^3.1.2
-  url_launcher: ^6.2.2
+  url_launcher: ^6.2.4
   shared_preferences: ^2.2.2
   intl: ^0.18.1
   clipboard: ^0.1.3

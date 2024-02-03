@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_boost/flutter_boost.dart';
+import 'package:flutter_ecosed/flutter_ecosed.dart';
 
 import 'binding.dart';
 import 'observer.dart';
@@ -20,11 +21,22 @@ class MyApp extends StatelessWidget {
     '/': (settings, uniqueId) {
       return MaterialPageRoute(
           settings: settings,
-
           builder: (_) {
             return const MyHomePage(title: appName);
           });
     },
+    '/manager': (settings, uniqueId) {
+      return MaterialPageRoute(
+          settings: settings,
+          builder: (context) {
+            return EcosedApp(
+              materialHome: (body, exec) => body,
+              bannerLocation: BannerLocation.topStart,
+              appName: appName,
+              plugins: [],
+            );
+          });
+    }
   };
 
   Route<dynamic>? routeFactory(RouteSettings settings, String? uniqueId) {
@@ -36,21 +48,21 @@ class MyApp extends StatelessWidget {
   Widget appBuilder(BuildContext context, Widget home) {
     return MaterialApp(
       title: appName,
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      theme: ThemeData(primarySwatch: Colors.blue, useMaterial3: true),
       home: home,
-      builder: (_, __) {
-        return home;
-      },
+      builder: (context, child) => home,
     );
   }
 
   @override
   Widget build(BuildContext context) {
-    return FlutterBoostApp(routeFactory, appBuilder: (home) {
-      return appBuilder(context, home);
-    });
+    return FlutterBoostApp(
+      routeFactory,
+      appBuilder: (home) => appBuilder(
+        context,
+        home,
+      ),
+    );
   }
 }
 
@@ -97,6 +109,31 @@ class _MyHomePageState extends State<MyHomePage> {
         tooltip: 'Increment',
         child: const Icon(Icons.add),
       ),
+    );
+  }
+}
+
+class Manager extends StatefulWidget {
+  const Manager(
+      {super.key, required this.body, required this.exec, required this.home});
+
+  final Widget body;
+  final EcosedExec exec;
+  final Widget home;
+
+  @override
+  State<Manager> createState() => _ManagerState();
+}
+
+class _ManagerState extends State<Manager> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('TermPlux Manager'),
+        centerTitle: true,
+      ),
+      body: widget.body,
     );
   }
 }
