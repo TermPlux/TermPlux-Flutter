@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_boost/flutter_boost.dart';
 import 'package:flutter_ecosed/flutter_ecosed.dart';
+import 'package:termplux/main_tiny.dart';
 
 import 'binding.dart';
 import 'observer.dart';
@@ -22,7 +23,7 @@ class MyApp extends StatelessWidget {
       return MaterialPageRoute(
           settings: settings,
           builder: (_) {
-            return const MyHomePage(title: appName);
+            return const MyTinyApp();
           });
     },
     '/manager': (settings, uniqueId) {
